@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-YA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Login Page
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+        link(rel='stylesheet', type='text/css', href='/style.css')
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+    body
+        .jumbotron-fluid.text-center(style='background-color:rgb(5, 57, 61);padding: 40px 20px;')
+            h1.font-weight-bold(style='color: #fff; ') PUBLIC DISTRIBUTION SYSTEM
+            // <h3><p class="mb-4 font-weight-bold text-uppercase font-weight-bold">Login in PDS</p> </h3>
+        .login-container.d-flex.align-items-center.justify-content-center(style='margin-top: 8%;')
+            form.login-form.text-center(action="/login/"+type,method="POST")
+                if message == 'notok'
+                    .alert.alert-danger.alert-dismissible
+                        a(href="#" class="close" data-dismiss="alert" aria-label="close")
+                            | x
+                        | Check username and password
+                .form-group
+                    input.form-control.rounded-pill.form-control-lg(type='text', name='aadharno', placeholder='Enter Aadhar Number', required='', autofocus='', minlength=12,maxlength=12)
+                .form-group
+                    input.form-control.rounded-pill.form-control-lg(type='password', name='password', placeholder='Password', minlength=10,maxlength=10)
+                .forgot-link.d-flex.align-items-center.justify-content-between
+                    //- .form-check
+                    //-     input#remember.form-check-input(type='checkbox')
+                    //-     label(for='remember') Remember Password
+                    //- a(href='/forget') Forgot Password?
+                //- a(href='/', style='color:#fff')
+                button.btn.mt-5.btn-outline-light.btn-custom.btn-block.text-uppercase.rounded-pill.btn-lg(type='submit')
+                    | Login
+                p.mt-3.font-weight-normal
+                    | Don't have an account! 
+                    a(href='/registration', style='color:#666;text-decoration: underline;')
+                        strong  REGISTER NOW!
+        div(style='text-align:right;position:fixed;bottom:3px;right:3px;width:100%;z-index:999999;cursor:pointer;line-height:0;display:block;')
+            a(target='_blank', href='https://www.freewebhostingarea.com', title='Free Web Hosting with PHP5 or PHP7')
+                //- img(alt='Free Web Hosting', src='https://www.freewebhostingarea.com/images/poweredby.png', style='border-width: 0px;width: 180px; height: 45px; float: right;')
+        // Optional JavaScript
+        // jQuery first, then Popper.js, then Bootstrap JS
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')

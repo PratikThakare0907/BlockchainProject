@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    title PANDA
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    link(rel='stylesheet', type='text/css', href='/style.css')
+  body
+    nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
+      a.navbar-brand(href='#') PDS
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
+        span.navbar-toggler-icon
+      #collapsibleNavbar.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Home
+          if aadharno == null
+            li.nav-item.float-right
+              a.nav-link(href='/login/admin') Admin Login
+            li.nav-item.float-right
+              a.nav-link(href='/login/customer') Customer Login
+            li.nav-item
+              a.nav-link(href='registration') User Registration
+            li.nav-item
+              a.nav-link(href='adminregistration') Admin Registration
+            li.nav-item
+              a.nav-link(href='government_emp') Government Emp
+          else
+              if type == 'admin'
+                li.nav-item
+                    a.nav-link(href='/transaction') Transaction
+                li.nav-item
+                  a.nav-link(href='/admin/dashboard') Dashboard
+              else
+                li.nav-item
+                    a.nav-link(href='transaction') Transaction
+              li.nav-item.float-right
+                a.nav-link(href='/logout') Logout
+    br
+    .container-fluid
+      .row
+        //- .col-lg-2
+        .col-lg-8
+      h3.text-center Customers
+      table.table.table-success.table-responsive(style="margin:0.1em")
+          thead
+              tr
+              th(scope='col') First Name
+              th(scope='col') Last Name
+              th(scope='col') Mobile No
+              th(scope='col') Country
+              th(scope='col') State
+              th(scope='col') City
+              th(scope='col') Address
+              th(scope='col') Zip
+              th(scope='col') Gender
+              th(scope='col') Email
+              th(scope='col') Aadhar No
+              th(scope='col') Transaction
+          tbody
+              each val in customers
+                //- if val.data.aadharno == sess.aadharno
+                tr
+                  td= val.data.fname
+                  td= val.data.lname
+                  td= val.data.mobileno
+                  td= val.data.country
+                  td= val.data.state
+                  td= val.data.city
+                  td= val.data.address
+                  td= val.data.zip
+                  td= val.data.gender
+                  td= val.data.email
+                  td= val.data.aadharno
+                  td  
+                    a.btn.btn-primary(href='/admin/dashboard/'+val.data.aadharno) Check
+
+

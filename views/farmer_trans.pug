@@ -1,0 +1,154 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js")
+        link(rel='stylesheet', type='text/css', href='/style.css')
+        script(src='main.js')
+        title Farmer Transaction Page
+    body
+        .jumbotron-fluid.text-center(style='background-color:rgb(5, 57, 61); padding: 40px ;')
+            h1.font-weight-bold(style='color: #fff; ') PUBLIC DISTRIBUTION SYSTEM
+        .container-fluid
+            .card
+                .card-header.text-center.font-weight-bold
+                    | Farmer Transaction
+                .card-body
+                    form.needs-validation(action='/farmer_trans', method='POST', novalidate='')
+                        .form-row
+                            .col-md-3.mb-3
+                                label(for='validationCustom01 ') Shop ID
+                                input#validationCustom01.form-control(onkeyup="doit()", type='number', name='shop_id', placeholder='Shop ID', required='', autofocus='' , value=aadharno )
+                                .invalid-feedback
+                                    | please give your name.
+                            .col-md-3.mb-3
+                                label#okbhai(for='checkusers') Farmer ID 
+                                input#checkusers.form-control(onkeyup='return checkUser()', type='text', name='farmer_id', placeholder='Farmer ID')
+                                .invalid-feedback
+                                    | Please give your last name.
+                        .form-row
+                            table.table.table-success
+                                thead
+                                    tr
+                                    th(scope='col') Product
+                                    th(scope='col') Quantity
+                                    th(scope='col') Rate
+                                    th(scope='col') Price
+                                tbody
+                                    tr
+                                    td() Rice
+                                    td
+                                        .col-md-4.mb-3
+                                            input#q1.validationCustom03.form-control(onkeyup="doit()", type='number', name='q1', placeholder='Quantity', value=0 ,required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#r1.validationCustom03.form-control(onkeyup="doit()", type='number', name='r1', placeholder='Rate', value=0 ,required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#p1.validationCustom03.form-control(onkeyup="doit()", type='number', name='p1', placeholder='Price', value=0 ,required='',readonly, maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+
+                                    tr
+                                    td() Wheet
+                                    td
+                                        .col-md-4.mb-3
+                                            input#q2.validationCustom03.form-control(onkeyup="doit()", type='number', name='q2', placeholder='Quantity', value=0 ,required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#r2.validationCustom03.form-control(onkeyup="doit()", type='number', name='r2', placeholder='Rate', value=0 ,required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#p2.validationCustom03.form-control(onkeyup="doit()", type='number', name='p2', placeholder='Price', value=0 ,required='',readonly, maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+
+                                    tr
+                                    td() Sugar
+                                    td
+                                        .col-md-4.mb-3
+                                            input#q3.validationCustom04.form-control(onkeyup="doit()", type='number', name='q3', placeholder='Quantity',value=0 , required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid state.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#r3.validationCustom03.form-control(onkeyup="doit()", type='number', name='r3', placeholder='Rate',value=0 , required='', maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+                                    td
+                                        .col-md-4.mb-3
+                                            input#p3.validationCustom03.form-control(onkeyup="doit()", type='number', name='p3', placeholder='Price', value=0 ,required='',readonly, maxlength='5' ,minlength='5', style="width:100px")
+                                            .invalid-feedback
+                                                | Please provide a valid country.
+
+                        button.btn.btn-outline-light(type='submit') Submit
+                        p.text-center
+                            | Already have an account? 
+                            a(href='login', style='color:#666;text-decoration: underline;')
+                                strong LOGIN IN HERE!
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
+script.
+  function isNumberKey(evt)
+  {
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31
+  && (charCode < 48 || charCode > 57))
+  return false;
+  return true;
+  }
+  function isNumericKey(evt)
+  {
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31
+  && (charCode < 48 || charCode > 57))
+  return true;
+  return false;
+  }
+  function checkUser()
+  {
+    var store = document.getElementById('checkusers')
+    console.log(store.value)
+    if(store.value.length==12){
+        axios.get(`http://localhost:8080/getfarmer/${store.value}`)
+        .then((res)=>{
+            document.getElementById('okbhai').innerHTML = `<span style="color:green">Customer Id is Valid</span>`
+            
+        }).catch(error => {console.log(error)});  
+    }else{
+        return false;
+    } 
+  }
+  function doit() {
+  var q1 = document.getElementById("q1");
+  var q2 = document.getElementById("q2");
+  var q3 = document.getElementById("q3");
+
+  var r1 = document.getElementById("r1");
+  var r2 = document.getElementById("r2");
+  var r3 = document.getElementById("r3");
+
+  var p1 = document.getElementById("p1");
+  var p2 = document.getElementById("p2");
+  var p3 = document.getElementById("p3");
+
+  p1.value = q1.value * r1.value
+  p2.value = q2.value * r2.value
+  p3.value = q3.value * r3.value
+
+  console.log(p2.value)
+  }
+
+  

@@ -1,0 +1,304 @@
+html
+{
+    position: relative;
+    min-height:100%;
+}
+
+body
+{
+    margin-bottom: 60px;
+    font-size: 14px;
+    background-color: #eee;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+}
+input{
+    text-align:center
+}
+* 
+{
+    cursor:
+    url('https://i.imgur.com/6wmyrkK.gif'),auto;
+}
+
+
+/*--------------------------------------------------NAVIGATION---------------------------------------------------------*/
+.navbar
+{
+    background-color:rgb(5, 57, 61);
+}
+
+.navbar-dark .navbar-nav .nav-link 
+{
+    color: rgba(255,255,255,.5);
+}
+
+/*--------------------------------------------------CARD---------------------------------------------------------*/
+
+.card
+{
+    margin-top: 20px;
+    border-radius: 20px; 
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-color: rgb(5, 57, 61);   
+    
+    
+}
+
+ .card-header
+{
+    font-weight: bold;
+    font-size: 1.4rem;
+    background-color:rgb(5, 57, 61);
+    overflow: hidden;
+    color: rgba(255,255,255,.5);   
+}
+ 
+/*--------------------------------------------------INPUT---------------------------------------------------------*/
+
+input[type=text], textarea 
+{
+    transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus 
+{
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+}
+
+input[type=password], textarea 
+{
+    transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+
+input[type=password]:focus, textarea:focus 
+{
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+}
+
+input[type=email], textarea 
+{
+    transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+input[type=email]:focus, textarea:focus 
+{
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+}
+
+
+/*--------------------------------------------------DropDown---------------------------------------------------------*/
+
+.col-md-4  .custom-select 
+{
+    transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+
+.col-md-4 .custom-select:focus
+{
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+}
+.form-row .col-md-4 .custom-select
+{
+    transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+.form-row .col-md-4 .custom-select:focus
+{
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+}
+
+/*--------------------------------------------------BUTTON---------------------------------------------------------*/
+
+.btn-outline-light
+{   
+    background-color:transparent;
+    border-radius: 10px;
+    border-color: black;
+    color:black;
+    margin: 0 auto;
+    display: block; 
+    
+}
+
+.btn-outline-light:hover
+{ 
+    color:white;
+    border-color: black;
+    cursor: pointer;
+    background-color:rgb(5, 57, 61);   
+}
+
+/*--------------------------------------------------FOOTER---------------------------------------------------------*/
+
+.footer 
+{
+    background-color:rgb(5, 57, 61);
+    position: absolute;
+    bottom:0 ;
+    height: 60px;
+    width: 100%;
+    text-align: center; 
+    overflow: hidden;
+}
+#modal-header
+{
+    background-color: rgb(5, 57, 61);
+    
+    color:#FFF;
+    padding:10px 10px;
+}
+#tr
+{
+    background-color: rgb(5, 57, 61);
+    color:#FFF;
+    
+    
+}
+
+/*--------------------------------------------------------------------------LOGIN------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+body
+{
+ font-size: 14px;
+ background-color: #eee;
+ color: #666;
+ font-family: 'Poppins', sans-serif;
+}
+.login-container
+{
+ height: auto;
+ width: 100%;
+ margin-top: 20vh;
+ 
+}
+.login-form
+{
+ max-width: 100%;
+ width: 370px;
+ padding: 15px;
+ margin: auto;
+}
+.form-control
+{
+ font-size: 15px;
+ min-height: 48px;
+ font-weight: 500;
+ transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    border: 1px solid #DDDDDD;
+
+}
+.form-control:focus
+{
+    border-color: rgb(5, 57, 61);
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+ 
+}
+.forgot-link
+{
+ font-size: 13px;
+}
+.forgot-link label
+{
+ margin-bottom: 0;
+}
+.forgot-link a
+{
+ text-decoration: none;
+ color: #666;
+}
+.forgot-link a:hover
+{
+ color: rgb(5, 57, 61);
+}
+
+.btn-custom
+{
+    outline: none;
+    border: 1px solid #DDDDDD;
+    background-color: rgb(5, 57, 61);
+    border-color: black;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    min-height: 48px;
+    
+}
+
+.btn-custom:focus,
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom:active:focus
+{
+ background-color: rgb(5, 57, 61);
+
+ color: #fff;
+}
+.btn-custom:focus
+{
+    border-color: rgb(5, 57, 61);
+    box-shadow: 0 0 5px rgb(5, 57, 61);
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgb(5, 57, 61);
+
+}
+.required input:after { content:"*"; }
+
+
+
+  

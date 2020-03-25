@@ -1,0 +1,69 @@
+doctype html
+html(lang='en')
+  head
+    title PANDA
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    link(rel='stylesheet', type='text/css', href='/style.css')
+  body
+    nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
+      a.navbar-brand(href='#') PDS
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
+        span.navbar-toggler-icon
+      #collapsibleNavbar.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Home
+          if aadharno == null
+            li.nav-item.float-right
+              a.nav-link(href='/login/admin') Admin Login
+            li.nav-item.float-right
+              a.nav-link(href='/login/customer') Customer Login
+            li.nav-item
+              a.nav-link(href='registration') User Registration
+            li.nav-item
+              a.nav-link(href='adminregistration') Admin Registration
+            li.nav-item
+              a.nav-link(href='government_emp') Government Emp
+          else
+            if type == 'admin'
+                li.nav-item
+                    a.nav-link(href='/transaction') Transaction
+                li.nav-item
+                    a.nav-link(href='/admin/dashboard') Dashboard
+            else
+                li.nav-item
+                    a.nav-link(href='/admin/dashboard/'+aadharno) Transaction
+
+            li.nav-item.float-right
+                a.nav-link(href='/logout') Logout
+    br
+    .row
+      .col-lg-1
+      .col-lg-11
+            h3 BlockChain Transactions
+            table.table.table-success
+                thead
+                    tr
+                    th(scope='col') From
+                    th(scope='col') To
+                    th(scope='col') Product 1
+                    th(scope='col') Product 2
+                    th(scope='col') Product 3
+                    th(scope='col') Hash
+                    th(scope='col') Date/Time
+                    
+                tbody
+                    each val in transactions
+                        tr
+                            td= val.data.from
+                            td= val.data.to
+                            td= val.data.rice
+                            td= val.data.wheet
+                            td= val.data.sugar
+                            td= val.hash
+                            td= val.timestamp

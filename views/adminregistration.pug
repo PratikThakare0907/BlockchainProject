@@ -1,0 +1,313 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+        link(rel='stylesheet', type='text/css', href='/style.css')
+        script(src='main.js')
+        title Admin Registration Page
+    body
+        .jumbotron-fluid.text-center(style='background-color:rgb(5, 57, 61); padding: 40px ;')
+            h1.font-weight-bold(style='color: #fff; ') PUBLIC DISTRIBUTION SYSTEM
+        .container-fluid
+            .card
+                .card-header.text-center.font-weight-bold
+                    | Admin Registration
+                .card-body
+                    form.needs-validation(action='/adminregistration', method='POST', novalidate='')
+                        .form-row
+                            .col-md-3.mb-3
+                                label(for='validationCustom01 ') First name
+                                input#validationCustom01.form-control(onkeypress='return isNumericKey(event)', type='text', name='fname', placeholder='First name', required='', autofocus='')
+                                .invalid-feedback
+                                    | please give your name.
+                            .col-md-3.mb-3
+                                label(for='validationCustom02') Last name
+                                input#validationCustom02.form-control(onkeypress='return isNumericKey(event)', type='text', name='lname', placeholder='Last name', required='')
+                                .invalid-feedback
+                                    | Please give your last name.
+                            .col-md-3.mb-3
+                                label(for='validationCustom01 ') Shop name
+                                input#validationCustom01.form-control(onkeypress='return isNumericKey(event)', type='text', name='sname', placeholder='Shop name', required='', autofocus='')
+                                .invalid-feedback
+                                    | please give your shop name.
+                            .col-md-3.mb-3
+                                label(for='validationCustom01 ') Shop ID
+                                input#validationCustom01.form-control(onkeypress='return isNumberKey(event)', type='text', name='sid', placeholder='Shop ID', required='', autofocus='')
+                                .invalid-feedback
+                                    | please give your shop name.
+                            
+                        .form-row
+                            .col-md-3.mb-3
+                                label(for='validationCustomUsername') Mobile No.
+                                input#validationCustomUsername.form-control(onkeypress='return isNumberKey(event)', type='text', name='mobileno', placeholder='Mobile no.', aria-describedby='inputGroupPrepend', required='', maxlength='10', minlength='10')
+                                .invalid-feedback
+                                    | Please give your mobile no.
+                            .col-md-3.mb-3.mt-1
+                                label(for='exampleFormControlSelect1') Designation
+                                select.custom-select(name='designation', required='')
+                                    option(value='') Open this select menu
+                                    option(value='Central_Government') Central Government
+                                    option(value='State_Government') State Government
+                                    option(value='FPS_Owner') FPS Owner
+                                .invalid-feedback  Invalid custom select Designation
+                            .col-md-3.mb-3
+                                label(for='validationCustom03') Government ID
+                                input#validationCustom03.form-control(onkeypress='return isNumberKey(event)', type='text', name='uid', placeholder='Unique Key', required='', maxlength='4', minlength='4')
+                                .invalid-feedback
+                                    | Please provide a valid Unique Key.
+                            .col-md-3.mb-3
+                                label(for='validationCustom03') Country
+                                input#mycountry.validationCustom03.form-control(onkeypress='return isNumericKey(event)', type='text', name='country', placeholder='Country', required='')
+                                .invalid-feedback
+                                    | Please provide a valid country.
+                        .form-row
+                            .col-md-3.mb-3
+                                label(for='validationCustom04') State
+                                input#mystate.validationCustom04.form-control(onkeypress='return isNumericKey(event)', type='text', name='state', placeholder='State', required='')
+                                .invalid-feedback
+                                    | Please provide a valid state.
+                            .col-md-3.mb-3
+                                label(for='validationCustom05') City
+                                input#validationCustom05.form-control(onkeypress='return isNumericKey(event)', type='text', name='city', placeholder='City', required='')
+                                .invalid-feedback
+                                    | Please provide a valid city.
+                            .col-md-3.mb-3
+                                label(for='validationCustom05') Shop Address
+                                input#validationCustom05.form-control(type='text', name='address', placeholder='Address', required='')
+                                .invalid-feedback
+                                    | Please provide a valid Address.
+                            .col-md-3.mb-3
+                                label(for='validationCustom05') Pincode
+                                input#validationCustom05.form-control(onkeypress='return isNumberKey(event)', type='text', name='zip', placeholder='Pincode', required='', maxlength='6', minlength='6')
+                                .invalid-feedback
+                                    | Please provide a valid Zip.
+                            .col-md-3.mb-3.mt-1
+                                label(for='exampleFormControlSelect1') Gender
+                                select.custom-select(name='gender', required='')
+                                    option(value='') Open this select menu
+                                    option(value='Male') Male
+                                    option(value='Female') Female
+                                    option(value='Other') Other
+                                .invalid-feedback  Invalid custom select Gender
+                            .col-md-3.mb-3
+                                label(for='validationCustom05') Email
+                                input#validationCustom05.form-control(type='email', name='email', placeholder='Email', required='')
+                                .invalid-feedback
+                                    | Please provide a valid Email.
+                            .col-md-3.mb-3
+                                label(for='validationCustom05') AdharCard No.
+                                input#validationCustom05.form-control(onkeypress='return isNumberKey(event)', type='text', name='aadharno', placeholder='AdharCard No.', required='', maxlength='12', minlength='12')
+                                .invalid-feedback
+                                    | Please provide a valid AdharCard No..
+                            .col-md-3.mb-3
+                                label(for='inputPassword4 validationCustom05') Password
+                                input.form-control(type='password', name='password', id='inputPassword4 validationCustom05', placeholder='Password', required='',minlength='8', maxlength='10')
+                                .invalid-feedback
+                                    | Please provide a valid Password.
+                        button.btn.btn-outline-light(type='submit') Submit
+                        p.text-center
+                            | Already have an account? 
+                            a(href='login', style='color:#666;text-decoration: underline;')
+                                strong LOGIN IN HERE!
+        script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+        script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
+script.
+  function isNumberKey(evt)
+  {
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31
+  && (charCode < 48 || charCode > 57))
+  return false;
+  return true;
+  }
+  function isNumericKey(evt)
+  {
+  var charCode = (evt.which) ? evt.which : evt.keyCode;
+  if (charCode != 46 && charCode > 31
+  && (charCode < 48 || charCode > 57))
+  return true;
+  return false;
+  }
+
+
+script.
+  function autocomplete(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+  var a, b, i, val = this.value;
+  closeAllLists();
+  if (!val) { return false;}
+  currentFocus = -1;
+  a = document.createElement("DIV");
+  a.setAttribute("id", this.id + "autocomplete-list");
+  a.setAttribute("class", "autocomplete-items");
+  this.parentNode.appendChild(a);
+  for (i = 0; i < arr.length; i++) {
+  if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+  b = document.createElement("DIV");
+  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+  b.innerHTML += arr[i].substr(val.length);
+  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+  b.addEventListener("click", function(e) {
+  inp.value = this.getElementsByTagName("input")[0].value;
+  closeAllLists();
+  });
+  a.appendChild(b);
+  }
+  }
+  });
+  inp.addEventListener("keydown", function(e) {
+  var x = document.getElementById(this.id + "autocomplete-list");
+  if (x) x = x.getElementsByTagName("div");
+  if (e.keyCode == 40) {
+  currentFocus++;
+  addActive(x);
+  } else if (e.keyCode == 38) {
+  currentFocus--;
+  addActive(x);
+  } else if (e.keyCode == 13) {
+  e.preventDefault();
+  if (currentFocus > -1) {
+  if (x) x[currentFocus].click();
+  }
+  }
+  });
+  function addActive(x) {
+  if (!x) return false;
+  removeActive(x);
+  if (currentFocus >= x.length) currentFocus = 0;
+  if (currentFocus < 0) currentFocus = (x.length - 1);
+  x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+  for (var i = 0; i < x.length; i++) {
+  x[i].classList.remove("autocomplete-active");
+  }
+  }
+  function closeAllLists(elmnt) {
+  var x = document.getElementsByClassName("autocomplete-items");
+  for (var i = 0; i < x.length; i++) {
+  if (elmnt != x[i] && elmnt != inp) {
+  x[i].parentNode.removeChild(x[i]);
+  }
+  }
+  }
+  document.addEventListener("click", function (e) {
+  closeAllLists(e.target);
+  });
+  }
+  var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+  autocomplete(document.getElementById("mycountry"), countries);
+
+script.
+  function autocomplete(inp, arr) {
+  var currentFocus;
+  inp.addEventListener("input", function(e) {
+  var a, b, i, val = this.value;
+  closeAllLists();
+  if (!val) { return false;}
+  currentFocus = -1;
+  a = document.createElement("DIV");
+  a.setAttribute("id", this.id + "autocomplete-list");
+  a.setAttribute("class", "autocomplete-items");
+  this.parentNode.appendChild(a);
+  for (i = 0; i < arr.length; i++) {
+  if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+  b = document.createElement("DIV");
+  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+  b.innerHTML += arr[i].substr(val.length);
+  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+  b.addEventListener("click", function(e) {
+  inp.value = this.getElementsByTagName("input")[0].value;
+  closeAllLists();
+  });
+  a.appendChild(b);
+  }
+  }
+  });
+  inp.addEventListener("keydown", function(e) {
+  var x = document.getElementById(this.id + "autocomplete-list");
+  if (x) x = x.getElementsByTagName("div");
+  if (e.keyCode == 40) {
+  currentFocus++;
+  addActive(x);
+  } else if (e.keyCode == 38) {
+  currentFocus--;
+  addActive(x);
+  } else if (e.keyCode == 13) {
+  e.preventDefault();
+  if (currentFocus > -1) {
+  if (x) x[currentFocus].click();
+  }
+  }
+  });
+  function addActive(x) {
+  if (!x) return false;
+  removeActive(x);
+  if (currentFocus >= x.length) currentFocus = 0;
+  if (currentFocus < 0) currentFocus = (x.length - 1);
+  x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+  for (var i = 0; i < x.length; i++) {
+  x[i].classList.remove("autocomplete-active");
+  }
+  }
+  function closeAllLists(elmnt) {
+  var x = document.getElementsByClassName("autocomplete-items");
+  for (var i = 0; i < x.length; i++) {
+  if (elmnt != x[i] && elmnt != inp) {
+  x[i].parentNode.removeChild(x[i]);
+  }
+  }
+  }
+  document.addEventListener("click", function (e) {
+  closeAllLists(e.target);
+  });
+  }
+  var countries = ["Maharashtra","Gao","Andra Pradesh","Arunachal Pradesh","Assam","Bihar","Chatisgarh","Gujarat","Haryana","Himachal Pradesh","Jammu and Kashmir","Jharkhand","Karnataka","Kerla","Madhaya Prayedsh","Manipur","Meghalaya","Mizoram","Nagaland","Odisa","Punjab","Rajasthan","Sikkim","Tamilnadu","Telangana","Tripura","Uttar Pradesh","Uttara Khand","West Bengal"];
+  autocomplete(document.getElementById("mystate"), countries);
+
+style.
+    * {
+    box-sizing: border-box;
+    }
+    body {
+    font: 16px Arial;
+    }
+    /*the container must be positioned relative:*/
+    .autocomplete {
+    position: relative;
+    display: inline-block;
+    }
+    
+    .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    }
+    .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    }
+    /*when hovering an item:*/
+    .autocomplete-items div:hover {
+    background-color: #e9e9e9;
+    }
+    /*when navigating through the items using the arrow keys:*/
+    .autocomplete-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+    }

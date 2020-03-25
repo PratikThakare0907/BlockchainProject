@@ -1,0 +1,71 @@
+doctype html
+html(lang='en')
+  head
+    title PANDA
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
+    //- link(rel='stylesheet', type='text/css', href='/style.css')
+  body
+    nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
+      a.navbar-brand(href='#') PDS
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
+        span.navbar-toggler-icon
+      #collapsibleNavbar.collapse.navbar-collapse
+        ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/') Home
+          if aadharno == null
+            li.nav-item.float-right
+              a.nav-link(href='/login/admin') Admin Login
+            li.nav-item.float-right
+              a.nav-link(href='/login/customer') Customer Login
+            li.nav-item
+              a.nav-link(href='registration') User Registration
+            li.nav-item
+              a.nav-link(href='adminregistration') Admin Registration
+            li.nav-item
+              a.nav-link(href='government_emp') Government Emp
+
+          else
+              if type == 'admin'
+                li.nav-item
+                    a.nav-link(href='/transaction') Transaction
+                li.nav-item
+                  a.nav-link(href='/admin/dashboard') Dashboard
+              else
+                li.nav-item
+                      a.nav-link(href='/admin/dashboard/'+aadharno) Transactions
+              li.nav-item.float-right
+                a.nav-link(href='/logout') Logout
+    br
+    .row
+      .col-lg-2
+      .col-lg-8
+
+        form(action='/government_emp', method='POST')
+          | Government Desgignation:
+          br
+          select.custom-select.mt-1.mb-4(name='govdesg', required='')
+                                        option(value='') Open this select menu
+                                        option(value='Central_Government') Central Government
+                                        option(value='State_Government') State Government
+                                        option(value='FPS_Owner') FPS Owner
+          br
+          span.mt-4 Government ID:
+          br
+          input.form-control.mt-1(type='text', name='govid')
+          br
+          br
+          button.btn.btn-block(style="background:rgb(5, 57, 61);color:white" type='submit') Save
+        footer.footer.mt-auto.py-3
+  .container
+    span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group Of JDANS.
+
+
+
+
+    
