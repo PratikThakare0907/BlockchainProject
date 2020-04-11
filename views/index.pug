@@ -9,99 +9,102 @@ html(lang='en')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
     link(rel='stylesheet', type='text/css', href='/style.css')
-  body
-    nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
-      a.navbar-brand(href='#') PDS
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
-        span.navbar-toggler-icon
-      #collapsibleNavbar.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Home
-          if aadharno == null
-            li.nav-item.float-right
-              a.nav-link(href='/login/admin') Admin Login
-            li.nav-item.float-right
-              a.nav-link(href='/login/customer') Customer Login
-            li.nav-item
-              a.nav-link(href='registration') User Registration
-            li.nav-item
-              a.nav-link(href='adminregistration') Admin Registration
-            li.nav-item
-              a.nav-link(href='government_emp') Government Emp
-            li.nav-item
-              a.nav-link(href='farmer') Farmer
-            li.nav-item
-              a.nav-link(href='blockchain_transcation') BlockChain Transactions
-            
-          else
-              if type == 'admin'
-                li.nav-item
-                    a.nav-link(href='/transaction') Transaction
-                li.nav-item
-                  a.nav-link(href='/admin/dashboard') Dashboard
-                li.nav-item
-                  a.nav-link(href='farmer_trans') Farmer Transaction
-              else
-                li.nav-item
-                      a.nav-link(href='/admin/dashboard/'+aadharno) Transactions
-              li.nav-item.float-right
-                a.nav-link(href='/logout') Logout
-    br
+    body 
+        nav.navbar.sticky-top.navbar.navbar-expand-lg.navbar-dark
+            a.navbar-brand(href='/') PUBLIC DISTRIBUTION SYSTEM    
+  .container-fluid
     .row
-      .col-lg-2
-      .col-lg-8
-        #demo.carousel.slide(data-ride='carousel')
-          ul.carousel-indicators
-            li.active(data-target='#demo', data-slide-to='0')
-            li(data-target='#demo', data-slide-to='1')
-            li(data-target='#demo', data-slide-to='2')
-          .carousel-inner
-            .carousel-item.active
-              img(src='./8.jpg', alt='3', width='1100', height='500')
-              .carousel-caption
-                h3= aadharno
-                p We had such a great time in Distribution System
-            .carousel-item
-              img(src='./9.jpg', alt='4', width='1100', height='500')
-              .carousel-caption
-                h3 hello Good Morning
-                p Thank you
-            .carousel-item
-              img(src='./10.jpg', alt='8', width='1100', height='500')
-              .carousel-caption
-                h3 Maharashtra
-                p We love the food Distribution to all citizen 
-            
-          a.carousel-control-prev(href='#demo', data-slide='prev')
-            span.carousel-control-prev-icon
-          a.carousel-control-next(href='#demo', data-slide='next')
-            span.carousel-control-next-icon
-
-          //- #google_translate_element
-          //-     script(type='text/javascript').
-          //-       function googleTranslateElementInit() {
-          //-       new google.translate.TranslateElement(
-          //-       {pageLanguage: 'en'},
-          //-       'google_translate_element'
-          //-       );
-          //-       }
-          //-     script(type='text/javascript', src='https://translate.google.com/translate_a/element.js? \
-          //-     cb=googleTranslateElementInit')
-         
-
-
-
-      .container
-        h1 Public Distribution System
-        p
-          | Public distribution system is a structure that is sponsored by a government and includes chain of shops trusted with the work of distributing basic food and non-food commodities to the disadvantaged group of the society at very low prices.
-        hr
-        p
-          | The Indian food security system was established by the Government of India under the Ministry of Consumer Affairs, Food and Public Distribution to distribute food and non-food items to India's poor at subsidised rates. This scheme was first started in February 1944, during the Second World War, and was launched in the current form in June 1947. Major commodities distributed include staple food grains, such as wheat, rice, sugar and essential fuels like kerosene, through a network of fair price shops (also known as ration shops) established in several states across the country. Food Corporation of India, a Government-owned corporation, procures and maintains the PDS(public distribution system). In coverage and public expenditure, it is considered to be the most important food security network. However, the food grains supplied by the ration shops are not enough to meet the consumption needs of the poor or are of inferior quality. The average level of consumption of PDS seeds in India is only 1 kg per person per month. The PDS has been criticised for its urban bias and its failure to serve the poorer sections of the population effectively. The targeted PDS is costly and gives rise to much corruption in the process of extricating the poor from those who are less needy. Today, India has the largest stock of grain in the world besides China, the government spends Rs. 750 billion ($13.6 billion) per year, almost 1 percent of GDP, yet 21% remain undernourished. Distribution of food grains to poor people throughout the country is managed by state governments. As of 2011 there were 505,879 fair price shops (FPS) across India.
-        footer.footer.mt-auto.py-3
-  .container
-    span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group Of JDANS.
-
-
-
+        .col-lg-3
+          if aadharno==null
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold LOGIN
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/login/admin' style='color: black;') Admin Login
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/login/customer' style='color: black;') Customer Login
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold REGISTRATION
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='adminregistration' style='color: black;') Admin Registration
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='registration' style='color: black;') Customer Registration
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='farmer' style='color: black;') Farmer Registration
+              
+          else   
+            if type == 'admin' 
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/transaction' style='color: black;') Transaction
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard' style='color: black;') Dashboard
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='farmer_trans' style='color: black;') Farmer Transaction
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold CHECK
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+            else
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard/'+aadharno style='color: black;') Transactions
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/logout' style='color: black;') Logout
+        .col-lg-9
+          .card-body
+              #carouselExampleCaptions.carousel.slide.mb-2(data-ride='carousel')
+                ol.carousel-indicators
+                    li.active(data-target='#carouselExampleCaptions' data-slide-to='0')
+                    li.active(data-target='#carouselExampleCaptions' data-slide-to='1')
+                    li.active(data-target='#carouselExampleCaptions' data-slide-to='2')
+                .carousel-inner
+                 .carousel-item.active
+                    img.d-block.w-100.img-fluid(src='./8.jpg' alt='...')
+                    .carousel-caption.d-none.d-md-block
+                     h3= aadharno
+                     p(style="color:black;font-size:20px;") We had such a great time in Distribution System
+                 .carousel-item
+                    img.d-block.w-100(src='./9.jpg' alt='...')
+                    .carousel-caption.d-none.d-md-block
+                     p(style="color:black;font-size:20px;") hello Maharashtra 
+                     p(style="color:black;font-size:20px;") Good Morning
+                     
+                 .carousel-item
+                    img.d-block.w-100(src='./10.jpg' alt='...')
+                    .carousel-caption.d-none.d-md-block
+                     p(style="color:black;font-size:20px;") Maharashtra
+                     p(style="color:black;font-size:20px;") We love the food Distribution to all citizen 
+                    a.carousel-control-prev(href='#carouselExampleCaptions' role='button' data-slide='prev')
+                    span.carousel-control-prev-icon(aria-hidden='true')
+                    span.sr-only Previous
+                    a.carousel-control-next(href='#carouselExampleCaptions' role='button' data-slide='next')
+                    span.carousel-control-next-icon(aria-hidden='true')
+                    span.sr-only Next
+              .jumbotron-fluid
+                  h3.display-4(style='color:black;font-family:monospace;font-size: 45px;') Public Distribution System 
+                  p.lead.text-justify.font-weight-bold
+                    | Public distribution system is a structure that is sponsored by a government and includes chain of shops trusted with the work of distributing basic food and non-food commodities to the
+                    | disadvantaged group of the society at very low prices.
+                  hr.my-2
+                  p.text-justify(style='color:black;')
+                    | The Indian food security system was established by the Government of India under the Ministry of Consumer Affairs, Food and Public Distribution to distribute food and non-food items to India&apos;s poor at subsidised rates.
+                    | This scheme was first started in February 1944, during the Second World War, and was launched in the current form in June 1947. Major commodities distributed include staple food grains, such as wheat, rice,
+                    | sugar and essential fuels like kerosene, through a network of fair price shops (also known as ration shops) established in several states across the country. Food Corporation of India, a Government-owned corporation,
+                    | procures and maintains the PDS(public distribution system).
+                    | In coverage and public expenditure, it is considered to be the most important food security network. However, the food grains supplied by the ration shops are not enough to meet
+                    | the consumption needs of the poor or are of inferior quality. The average level of consumption of PDS seeds in India is only 1 kg per person per month. The PDS has been criticised for its urban bias
+                    | and its failure to serve the poorer sections of the population effectively. The targeted PDS is costly and gives rise to much corruption in the process of extricating the poor from those who are less needy. Today, India has the largest stock of
+                    | grain in the world besides China, the government spends Rs. 750 billion ($13.6 billion) per year, almost 1 percent of GDP, yet 21% remain undernourished. Distribution of food grains to poor people throughout the country is managed by state governments.
+                    | As of 2011 there were 505,879 fair price shops (FPS) across India.
+  footer.footer.mt-auto.py-4
+     .container
+          span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group OF JDANS.

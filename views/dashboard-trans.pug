@@ -1,7 +1,7 @@
 doctype html
 html(lang='en')
   head
-    title PANDA
+    title PANDA T
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')
@@ -11,42 +11,61 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='/style.css')
   body
     nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
-      a.navbar-brand(href='#') PDS
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
-        span.navbar-toggler-icon
-      #collapsibleNavbar.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Home
-          if aadharno == null
-            li.nav-item.float-right
-              a.nav-link(href='/login/admin') Admin Login
-            li.nav-item.float-right
-              a.nav-link(href='/login/customer') Customer Login
-            li.nav-item
-              a.nav-link(href='registration') User Registration
-            li.nav-item
-              a.nav-link(href='adminregistration') Admin Registration
-            li.nav-item
-              a.nav-link(href='government_emp') Government Emp
-          else
-            if type == 'admin'
-                li.nav-item
-                    a.nav-link(href='/transaction') Transaction
-                li.nav-item
-                    a.nav-link(href='/admin/dashboard') Dashboard
-            else
-                li.nav-item
-                    a.nav-link(href='/admin/dashboard/'+aadharno) Transaction
-
-            li.nav-item.float-right
-                a.nav-link(href='/logout') Logout
+      a.navbar-brand(href='#') PUBLIC DISTRIBUTION SYSTEM
     br
+    h1.text-center(style="color:black;text-decoration:underline;") Transactions
+  .container-fluid
     .row
-      .col-lg-2
-      .col-lg-8
-            h3 Transactions
-            table.table.table-success
+        .col-lg-3
+          if aadharno==null
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold LOGIN
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/login/admin' style='color: black;') Admin Login
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/login/customer' style='color: black;') Customer Login
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold REGISTRATION
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='adminregistration' style='color: black;') Admin Registration
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='registration' style='color: black;') Customer Registration
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='farmer' style='color: black;') Farmer Registration
+              
+          else   
+            if type == 'admin' 
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/transaction' style='color: black;') Transaction
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard' style='color: black;') Dashboard
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/logout' style='color: black;') Logout
+                //- li.list-group-item
+                //-     a.card-link.btn.d-block.btn-outline-info(href='farmer_trans' style='color: black;') Farmer Transaction
+              //- .card.border-dark.mb-2
+              //-   .card-header.text-center.font-weight-bold CHECK
+              //-   ul.list-group.list-group-flush
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+            else
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                //- li.list-group-item
+                //-     a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+                //- li.list-group-item
+                //-     a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard/'+aadharno style='color: black;') Transactions
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/logout' style='color: black;') Logout
+        .col-lg-9
+           .card-body
+            table.table-bordered.table-responsive-md.table.table-success.text-center
                 thead
                     tr
                     th(scope='col') Shop ID
@@ -68,3 +87,7 @@ html(lang='en')
                                 td= val.data.sugar
                                 td= '₹ '+String((Number(val.data.rate_rice)*Number(val.data.rice))+(Number(val.data.rate_wheet)*Number(val.data.wheet))+(Number(val.data.rate_sugar)*Number(val.data.sugar)))+'/-'
                                 td= val.timestamp
+            
+  footer.footer.mt-auto.py-4
+     .container
+          span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group OF JDANS.

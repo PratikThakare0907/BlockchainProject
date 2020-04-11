@@ -8,64 +8,94 @@ html(lang='en')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')
-    //- link(rel='stylesheet', type='text/css', href='/style.css')
+    link(rel='stylesheet', type='text/css', href='/style.css')
+    script(src='main.js')
   body
-    nav.navbar.navbar-expand-md.navbar-dark(style="background:rgb(5, 57, 61);")
-      a.navbar-brand(href='#') PDS
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#collapsibleNavbar')
-        span.navbar-toggler-icon
-      #collapsibleNavbar.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
-            a.nav-link(href='/') Home
-          if aadharno == null
-            li.nav-item.float-right
-              a.nav-link(href='/login/admin') Admin Login
-            li.nav-item.float-right
-              a.nav-link(href='/login/customer') Customer Login
-            li.nav-item
-              a.nav-link(href='registration') User Registration
-            li.nav-item
-              a.nav-link(href='adminregistration') Admin Registration
-            li.nav-item
-              a.nav-link(href='government_emp') Government Emp
-
-          else
-              if type == 'admin'
-                li.nav-item
-                    a.nav-link(href='/transaction') Transaction
-                li.nav-item
-                  a.nav-link(href='/admin/dashboard') Dashboard
-              else
-                li.nav-item
-                      a.nav-link(href='/admin/dashboard/'+aadharno) Transactions
-              li.nav-item.float-right
-                a.nav-link(href='/logout') Logout
-    br
+    nav.navbar.sticky-top.navbar.navbar-expand-lg.navbar-dark
+            a.navbar-brand(href='#') PUBLIC DISTRIBUTION SYSTEM
+            //- button.navbar-toggler(type='button' data-toggle='collapse', data-target='#collapsibleNavbar')
+            //-   span.navbar-toggler-icon
+            //- #collapsibleNavbar.collapse.navbar-collapse
+            //-     ul.navbar-nav
+            //-      li.nav-item
+            //-         a.nav-link(href='/') HOME
+        
+  .container-fluid
     .row
-      .col-lg-2
-      .col-lg-8
-
-        form(action='/government_emp', method='POST')
-          | Government Desgignation:
-          br
-          select.custom-select.mt-1.mb-4(name='govdesg', required='')
-                                        option(value='') Open this select menu
-                                        option(value='Central_Government') Central Government
-                                        option(value='State_Government') State Government
-                                        option(value='FPS_Owner') FPS Owner
-          br
-          span.mt-4 Government ID:
-          br
-          input.form-control.mt-1(type='text', name='govid')
-          br
-          br
-          button.btn.btn-block(style="background:rgb(5, 57, 61);color:white" type='submit') Save
-        footer.footer.mt-auto.py-3
-  .container
-    span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group Of JDANS.
-
-
-
-
+        .col-lg-3
+          if aadharno==null
+              //- .card.border-dark.mb-2
+              //-   .card-header.text-center.font-weight-bold LOGIN
+              //-   ul.list-group.list-group-flush
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='/login/admin' style='color: black;') Admin Login
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='/login/customer' style='color: black;') Customer Login
+              //- .card.border-dark.mb-2
+              //-   .card-header.text-center.font-weight-bold REGISTRATION
+              //-   ul.list-group.list-group-flush
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='adminregistration' style='color: black;') Admin Registration
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='registration' style='color: black;') Customer Registration
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='farmer' style='color: black;') Farmer Registration
+              .card.border-dark.mb-2
+                //- .card-header.text-center.font-weight-bold CHECK
+                ul.list-group.list-group-flush
+                //- li.list-group-item
+                //-     a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+          else   
+            if type == 'admin' 
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/transaction' style='color: black;') Transaction
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard' style='color: black;') DashBoard
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='farmer_trans' style='color: black;') Farmer Transaction
+            else
+              .card.border-dark.mb-2
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard/'+aadharno style='color: black;') Transactions
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='/logout' style='color: black;') Logout
     
+        .col-lg-9
+          .card
+            .card-header.text-center.font-weight-bold GOVERNMENT EMPLOYEE
+            .card-body
+                  form.needs-validation(action='/government_emp', method='POST', novalidate="")
+                    label(for='exampleFormControlSelect1') Government Designation: 
+                    select.custom-select.form-control.form-control-lg(name='govdesg', required='')
+                        option(value='') Open this select menu
+                        option(value='Central_Government') Central Government
+                        option(value='State_Government') State Government
+                        option(value='FPS_Owner') FPS Owner
+                    .invalid-feedback Invalid custom select Government Designation
+                          
+                    br
+                    br
+                    
+                    label(for='validationCustom01') Government ID:
+                    input#validationCustom01.form-control(type='text', placeholder='Government ID' name='govid' , required='')
+                    .invalid-feedback 
+                        | Please provide a valid Government ID:
+                      
+                    br
+                    
+                  button.btn.btn-lg.btn-outline-light.btn-block(type='submit') Save
+  footer.footer.mt-auto.py-4
+        .container
+            span.text-muted © Event Organiser 2020 All Rights are Reserved Design by PANDA Group Of JDANS.
+
+
+                script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+                script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+                script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+
+                

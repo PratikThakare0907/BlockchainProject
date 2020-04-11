@@ -46,7 +46,7 @@ html(lang='en')
                                     | Please give your mobile no.
                             .col-md-3.mb-3.mt-1
                                 label(for='exampleFormControlSelect1') Designation
-                                select.custom-select(name='designation', required='')
+                                select.custom-select.form-control.form-control-lg(name='designation', required='')
                                     option(value='') Open this select menu
                                     option(value='Central_Government') Central Government
                                     option(value='State_Government') State Government
@@ -85,7 +85,7 @@ html(lang='en')
                                     | Please provide a valid Zip.
                             .col-md-3.mb-3.mt-1
                                 label(for='exampleFormControlSelect1') Gender
-                                select.custom-select(name='gender', required='')
+                                select.custom-select.form-control.form-control-lg(name='gender', required='')
                                     option(value='') Open this select menu
                                     option(value='Male') Male
                                     option(value='Female') Female
@@ -116,6 +116,13 @@ html(lang='en')
         script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
 
 script.
+
+  setTimeout(function(){
+      if($('#msg').length > 0){
+          $('#msg').remove();
+      }
+  },2000)
+  
   function isNumberKey(evt)
   {
   var charCode = (evt.which) ? evt.which : evt.keyCode;
