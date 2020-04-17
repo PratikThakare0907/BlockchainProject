@@ -11,6 +11,7 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='/style.css')
     body 
         nav.navbar.sticky-top.navbar.navbar-expand-lg.navbar-dark
+            //- img#holder(src='./public1.png')
             a.navbar-brand(href='/') PUBLIC DISTRIBUTION SYSTEM    
   .container-fluid
     .row
@@ -32,6 +33,14 @@ html(lang='en')
                     a.card-link.btn.d-block.btn-outline-info(href='registration' style='color: black;') Customer Registration
                 li.list-group-item
                     a.card-link.btn.d-block.btn-outline-info(href='farmer' style='color: black;') Farmer Registration
+              .card.border-dark.mb-2
+                .card-header.text-center.font-weight-bold CHECK
+                ul.list-group.list-group-flush
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
+                li.list-group-item
+                    a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+              
               
           else   
             if type == 'admin' 
@@ -43,13 +52,13 @@ html(lang='en')
                     a.card-link.btn.d-block.btn-outline-info(href='/admin/dashboard' style='color: black;') Dashboard
                 li.list-group-item
                     a.card-link.btn.d-block.btn-outline-info(href='farmer_trans' style='color: black;') Farmer Transaction
-              .card.border-dark.mb-2
-                .card-header.text-center.font-weight-bold CHECK
-                ul.list-group.list-group-flush
-                li.list-group-item
-                    a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
-                li.list-group-item
-                    a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
+              //- .card.border-dark.mb-2
+              //-   .card-header.text-center.font-weight-bold CHECK
+              //-   ul.list-group.list-group-flush
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='government_emp' style='color: black;') Government Employee
+              //-   li.list-group-item
+              //-       a.card-link.btn.d-block.btn-outline-info(href='blockchain_transcation' style='color: black;') Blockchain Transactions
             else
               .card.border-dark.mb-2
                 ul.list-group.list-group-flush
@@ -64,8 +73,8 @@ html(lang='en')
               #carouselExampleCaptions.carousel.slide.mb-2(data-ride='carousel')
                 ol.carousel-indicators
                     li.active(data-target='#carouselExampleCaptions' data-slide-to='0')
-                    li.active(data-target='#carouselExampleCaptions' data-slide-to='1')
-                    li.active(data-target='#carouselExampleCaptions' data-slide-to='2')
+                    li(data-target='#carouselExampleCaptions' data-slide-to='1')
+                    li(data-target='#carouselExampleCaptions' data-slide-to='2')
                 .carousel-inner
                  .carousel-item.active
                     img.d-block.w-100.img-fluid(src='./8.jpg' alt='...')
@@ -75,14 +84,13 @@ html(lang='en')
                  .carousel-item
                     img.d-block.w-100(src='./9.jpg' alt='...')
                     .carousel-caption.d-none.d-md-block
-                     p(style="color:black;font-size:20px;") hello Maharashtra 
-                     p(style="color:black;font-size:20px;") Good Morning
-                     
+                    h3 hello Good Morning
+                    p Thank you
                  .carousel-item
                     img.d-block.w-100(src='./10.jpg' alt='...')
                     .carousel-caption.d-none.d-md-block
-                     p(style="color:black;font-size:20px;") Maharashtra
-                     p(style="color:black;font-size:20px;") We love the food Distribution to all citizen 
+                    h3 Maharashtra
+                    p We love the food Distribution to all citizen 
                     a.carousel-control-prev(href='#carouselExampleCaptions' role='button' data-slide='prev')
                     span.carousel-control-prev-icon(aria-hidden='true')
                     span.sr-only Previous
